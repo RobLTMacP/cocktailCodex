@@ -4,13 +4,14 @@ import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "drinks")
-public class Drinks {
+public class Drink {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -27,14 +28,30 @@ public class Drinks {
     @CreatedDate
     private Date createdAt;
 
-    public Drinks() {
+    @ManyToMany
+    @JoinTable(
+            name = "drink_ingredients",
+            joinColumns = @JoinColumn(name = "drink_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id")
+    )
+    private List<Ingredient> ingredients;
+
+    public Drink() {
     }
 
-    public Drinks(String name, String description, double price, Date createdAt) {
+    public Drink(String name, String description, double price, Date createdAt) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.createdAt = createdAt;
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
     }
 
     public Long getId() {

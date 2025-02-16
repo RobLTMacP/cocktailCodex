@@ -1,10 +1,10 @@
 package maddogsoftworks.cocktail_codex.repository;
 
-import maddogsoftworks.cocktail_codex.model.Drinks;
+import maddogsoftworks.cocktail_codex.model.Drink;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DrinksRepository extends JpaRepository<Drinks, Integer> {
-    Drinks findByName(String name);
+public interface DrinkRepository extends JpaRepository<Drink, Integer> {
+    Drink findByName(String name);
 }

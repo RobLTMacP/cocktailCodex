@@ -4,10 +4,10 @@ import jakarta.persistence.*;
 
 @Entity
 @Table (name = "ingredients")
-public class Ingredients {
+public class Ingredient {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -20,10 +20,10 @@ public class Ingredients {
 
     // constructors
 
-    public Ingredients() {
+    public Ingredient() {
     }
 
-    public Ingredients(String name, IngredientType type) {
+    public Ingredient(String name, IngredientType type) {
         this.name = name;
         this.type = type;
     }
