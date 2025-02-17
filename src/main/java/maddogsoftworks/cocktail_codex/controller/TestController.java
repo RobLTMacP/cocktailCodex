@@ -1,13 +1,13 @@
 package maddogsoftworks.cocktail_codex.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-@RestController
+@Controller
 public class TestController {
 
-    @GetMapping("/")
-    public String test() {
-        return "SERVER RUNNING";
+    @RequestMapping("/")
+    public String index() {
+        return "index";
     }
 }
